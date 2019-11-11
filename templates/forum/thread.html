@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table border="1" style="border-radius: 13px; border-spacing: 0;">
+        <thead>
+        <td style="border-radius: 13px 0px 0px 0px; border-spacing: 0;">Title</td>
+        <td>Username</td>
+        <td>Date created</td>
+        <td style="border-radius: 0px 13px 0px 0px; border-spacing: 0;">idk</td>
+        </thead>
+
+        <tr>
+            <td><a href="threads/{{thread["threadId"]}}"</a>{{thread["title"]}}</td>
+            <td><a href="user/{{thread["userId"]}}">{{thread["userId"]}}</a></td>
+            <td>
+                <!--{{thread["date"]}}-->
+                <script type="text/javascript">
+                    document.write(new Date({{ thread["date"] }} * 1000).toDateString());
+                </script>
+            </td>
+            <td>{{thread["content"]}}</td>
+        </tr>
+    </table>
+    <table border="1">
+        <thead>
+        <td>User</td>
+        <td>Comment</td>
+        </thead>
+
+        {% for comment in comments %}
+        <tr>
+            <td><a href="/user/{{comment["userId"]}}">{{comment["user"].name}}</a></td>
+            <td>{{comment["text"]}}</td>
+        </tr>
+        {% endfor %}
+        <form method="POST">
+            <tr>
+                <td><input id="comment" name="comment" type="text" /></td>
+                <td><input type="submit" /></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>

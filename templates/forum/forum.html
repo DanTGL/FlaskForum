@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+        <td>Title</td>
+        <td>Username</td>
+        <script>print("idk");</script>
+        <td>Date created</td>
+        <td>idk</td>
+        </thead>
+
+        {% for row in rows %}
+        <tr>
+            <td><a href="threads/{{row["threadId"]}}"</a>{{row["title"]}}</td>
+            <td><a href="user/{{row["name"]}}">{{row["name"]}}</a></td>
+            <td>{{row["date"]}}</td>
+            <td>{{row["content"]}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+    <a href="/">Home</a>
+</body>
+</html>
